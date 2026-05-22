@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amber Gamgort | Technical Portfolio</title>
+    <style>
+        /* ==========================================================================
+           EARTH SCIENCE COLOR PALETTE & DESIGN SYSTEM VARIABLES 
+           UPDATED: Sage and Light Blue Accents with Soft Mineral Substrates
+           ========================================================================== */
+        :root {
+            --bg-canvas: #f2f5f4;       /* Soft Light Gray with a hint of Sage Mint */
+            --bg-card: #ffffff;         /* Pure Mineral White */
+            --text-main: #2c3531;       /* Deep Charcoal with an Olive Tint */
+            --text-muted: #5e6f67;      /* Matte Mossy Sage / Darker Foil Grey */
+            --accent-primary: #3f5146;    /* Deep Forest Sage / Dark Foliage Canopy */
+            --accent-sage: #708a7b;       /* Classic Field Sage / Velvet Lichen */
+            --accent-lightblue: #4a8ca8;  /* Sky Blue / Glacial Water Runoff */
+            --border-subtle: #dbe3e0;    /* Light Silt and Clay Stratum Boundary */
+            --shadow-sm: 0 1px 3px rgba(63, 81, 70, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(63, 81, 70, 0.06), 0 2px 4px -1px rgba(63, 81, 70, 0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(63, 81, 70, 0.08), 0 4px 6px -2px rgba(63, 81, 70, 0.04);
+        }
+
+        /* ==========================================================================
+           GLOBAL RESETS & BASE TYPOGRAPHY
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-canvas);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        /* Page width constraint layout wrapper */
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================================================
+           PROFILE HEADER HERO SECTION STYLES
+           ========================================================================== */
+        header {
+            background: var(--accent-primary);
+            color: #ffffff;
+            padding: 50px 40px;
+            border-radius: 12px 12px 0 0;
+            position: relative;
+            box-shadow: var(--shadow-md);
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #cbdad2;
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            font-size: 0.9rem;
+            color: #e4ece8;
+            border-top: 1px solid #546a5c;
+            padding-top: 20px;
+        }
+
+        .contact-row span strong {
+            color: #ffffff;
+        }
+
+        /* ==========================================================================
+           FIXED NAVIGATION TAB ROW ARCHITECTURE (STICKY ON SCROLL)
+           ========================================================================== */
+        nav {
+            display: flex;
+            background: #2b3830;
+            border-radius: 0 0 12px 12px;
+            padding: 0 20px;
+            box-shadow: var(--shadow-md);
+            overflow-x: auto;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            color: #a4bba8;
+            padding: 18px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            color: #ffffff;
+        }
+
+        .tab-button.active {
+            color: #ffffff;
+            border-bottom: 3px solid var(--accent-lightblue);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* ==========================================================================
+           VIEW STATE PANELS SWITCHER ANIMATIONS
+           ========================================================================== */
+        .tab-content {
+            display: none;
+            margin-top: 35px;
+            animation: paneFadeIn 0.35s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes paneFadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==========================================================================
+           REUSABLE CARD COMPONENT LAYOUTS
+           ========================================================================== */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            border-left: 4px solid var(--accent-sage);
+            padding-left: 14px;
+            font-weight: 700;
+        }
+
+        /* ==========================================================================
+           INTRO TAB PROFILE TWO-COLUMN LAYOUT
+           ========================================================================== */
+        .resume-intro {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .intro-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .profile-img-container {
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-subtle);
+            object-fit: cover;
+        }
+
+        @media (min-width: 768px) {
+            .intro-layout {
+                grid-template-columns: 320px 1fr;
+            }
+            .profile-img-container {
+                margin: 0;
+            }
+        }
+
+        /* ==========================================================================
+           RESUME TAB: TECHNICAL SKILLS CARD SECTION GRIDS
+           ========================================================================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .skill-card {
+            background: #fbfcfc;
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 18px;
+            transition: 0.25s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-lightblue);
+        }
+
+        .skill-card h3 {
+            color: var(--accent-primary);
+            font-size: 1rem;
+            margin-bottom: 10px;
+            letter-spacing: 0.03em;
+            font-weight: 700;
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           RESUME TAB: CHRONOLOGICAL EXPERIENCE TIMELINE STYLES
+           ========================================================================== */
+        .timeline-item {
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .timeline-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .timeline-meta h4 {
+            font-size: 1.15rem;
+            color: var(--accent-primary);
+            font-weight: 700;
+        }
+
+        .timeline-meta .date-badge {
+            font-size: 0.85rem;
+            background: #eef2f1;
+            color: var(--text-muted);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .timeline-company {
+            font-size: 0.95rem;
+            color: var(--accent-lightblue);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item ul {
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .timeline-item li {
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 640px) {
+            .timeline-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+        }
+
+        /* ==========================================================================
+           RESEARCH TAB: INTERACTIVE COLLAPSIBLE ACCORDION BLOCKS
+           ========================================================================== */
+        .accordion-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .accordion-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-sage);
+        }
+
+        .accordion-header {
+            padding: 25px 35px;
+            background: #ffffff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .accordion-header h3 {
+            font-size: 1.25rem;
+            color: var(--accent-primary);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .skills-tagline {
+            font-size: 0.85rem;
+            color: var(--accent-lightblue);
+            font-weight: 600;
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .accordion-icon {
+            font-size: 1.4rem;
+            color: var(--accent-sage);
+            transition: transform 0.25s ease;
+            font-weight: bold;
+        }
+
+        .accordion-card.active .accordion-icon {
+            transform: rotate(180deg);
+            color: var(--accent-lightblue);
+        }
+
+        .accordion-content {
+            overflow: hidden;
+            max-height: 0;
+            padding: 0 35px;
+            border-top: 0px solid transparent;
+            background: #ffffff;
+            transition:
+                max-height 0.35s ease,
+                padding 0.25s ease;
+        }
+
+        .accordion-card.active .accordion-content {
+            max-height: 2500px;
+            padding: 20px 35px 35px 35px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        /* Callout styling blocks inside panels */
+        .objective-box {
+            font-size: 0.95rem;
+            background-color: #f6f9f8;
+            padding: 18px;
+            border-left: 4px solid var(--accent-sage);
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+            color: var(--text-main);
+        }
+
+        .doc-section {
+            margin-top: 25px;
+        }
+
+        .doc-section h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-sage);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .doc-section p {
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .doc-section ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+        }
+
+        .doc-section li {
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        /* Document attachment link boxes */
+        .attachment-box {
+            margin-top: 30px;
+            padding: 18px 24px;
+            background-color: #f8faf9;
+            border: 1px dashed var(--border-subtle);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .attachment-details {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .file-icon {
+            font-size: 1.8rem;
+            color: var(--accent-sage);
+        }
+
+        .file-meta h5 {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .file-meta p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .btn-link {
+            display: inline-flex;
+            background-color: var(--accent-primary);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.15s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-link:hover {
+            background-color: var(--accent-lightblue);
+        }
+
+        /* ==========================================================================
+           REFERENCES TAB: COMPONENT PLACEMENT GRIDS
+           ========================================================================== */
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .reference-card {
+            background: #fbfcfc;
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .reference-card h4 {
+            font-size: 1.05rem;
+            color: var(--accent-primary);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .reference-card .ref-title {
+            font-size: 0.85rem;
+            color: var(--accent-lightblue);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .reference-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Amber Gamgort</h1>
+        <div class="subtitle">Earth Science &amp; Geospatial Data Science Portfolio</div>
+        <div class="contact-row">
+            <span><strong>Email:</strong> aruth0209@gmail.com</span>
+            <span><strong>Phone:</strong> (302) 803-3744</span>
+            <span><strong>Location:</strong> Newark, DE 19711</span>
+        </div>
+    </header>
+
+    <nav role="tablist" aria-label="Portfolio Sections">
+        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-intro" onclick="switchTab(event, 'tab-intro')">Intro</button>
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-resume" onclick="switchTab(event, 'tab-resume')">Resume</button>
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-research" onclick="switchTab(event, 'tab-research')">Research &amp; Field Projects</button>
+    </nav>
+
+    <div id="tab-intro" class="tab-content active" role="tabpanel" aria-labelledby="tab-intro">
+        <div class="card">
+            <div class="intro-layout">
+                
+                <div class="profile-img-container">
+                    <img src="Amber PFP.jpg" alt="Amber Gamgort Profile Image" class="profile-img">
+                </div>
+
+                <div>
+                    <h2 class="section-title" style="margin-top: 0;">Professional Overview</h2>
+                    <p class="resume-intro">
+                        I am a Geology graduate with interdisciplinary training in GIS and data science, interested in working with data from collection and management through processing, analysis, and clear visualization. I bring strong attention to detail, reliability, and a collaborative mindset to both field and office environments, and I am highly eager to learn new systems, adapt to fresh workflows, and pursue relevant industry certifications or licensure as required.
+                    </p>
+                    <p class="resume-intro" style="margin-top: -10px;">
+                        Through my academic background and hands-on roles at George Mason University, I have developed practical capabilities across spatial analysis, programming, and data modeling. My technical experience includes executing diverse GIS data pipelines, manipulating relational database structures, utilizing SQL and Python for statistical data tracking, and applying clustering models to evaluate spatial datasets.
+                    </p>
+                    <p class="resume-intro" style="margin-top: -10px;">
+                        In the field, I am experienced with mobile spatial data harvesting workflows, using Trimble GNSS hardware and ArcGIS Field Maps to conduct infrastructure audits, as well as executing basic stratigraphic observations and collecting data during geology field trips to Death Valley and Utah. Additionally, my experience as a peer Learning Assistant for field mapping and 3D GIS courses has deeply strengthened my technical communication, software troubleshooting, and ability to work effectively alongside faculty and student teams to solve problems.
+                    </p>
+                </div>
+
+            </div> 
+            <p style="color: var(--text-muted); font-size: 0.95rem; border-top: 1px solid var(--border-subtle); padding-top: 15px; margin-top: 25px;">
+                Select from the technical tabs above to review skills, experience, education history, examine multi-source academic research chapters, and download files.
+            </p>
+        </div>
+    </div>
+
+    <div id="tab-resume" class="tab-content" role="tabpanel" aria-labelledby="tab-resume">
+        
+        <div class="card">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>GIS &amp; Spatial Analysis</h3>
+                    <p>
+                        ArcGIS Pro • ArcGIS Online • Field Maps • Spatial Analysis •
+                        3D GIS • Web Mapping 
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Programming &amp; Data Science</h3>
+                    <p>
+                        Python (Pandas, Geopandas, Scikit-Learn) • SQL • MATLAB • R Studio •
+                        Statistical Modeling • Data Visualization • Database Design
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Field &amp; Survey Equipment</h3>
+                    <p>
+                        Trimble GNSS • Trimble Catalyst • Brunton Compass •
+                        Soil Augers • Traditional Transit • Field Mapping
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Geology &amp; Earth Science</h3>
+                    <p>
+                        Sedimentology • Structural Geology • Microscope Analysis •
+                        Stratigraphy • Soil Taxonomy • Rock and Mineral Identification
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-meta">
+                    <h4>Administrative Assistant</h4>
+                    <span class="date-badge">August 2023 – May 2026</span>
+                </div>
+                <div class="timeline-company">Geography and Geoinformation Science — George Mason University</div>
+                <ul>
+                    <li>Managed front desk operations, handled communications with students, faculty, and visitors.</li>
+                    <li>Developed and organized student-facing resources to improve accessibility and engagement.</li>
+                    <li>Maintained an organized, welcoming office environment and supported daily departmental operations.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-meta">
+                    <h4>Learning Assistant</h4>
+                    <span class="date-badge">Fall 2025 &amp; Spring 2026</span>
+                </div>
+                <div class="timeline-company">College of Science — George Mason University</div>
+                <ul>
+                    <li>Facilitated student learning in GIS and field mapping courses through individual and group support.</li>
+                    <li>Contributed to development of instructional materials for a first time 3D GIS course.</li>
+                    <li>Guided students in understanding spatial concepts and technical tools through hands-on assistance.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-meta">
+                    <h4>Field Work Assistant</h4>
+                    <span class="date-badge">Summer 2025</span>
+                </div>
+                <div class="timeline-company">Geography and Geoinformation Science — George Mason University</div>
+                <ul>
+                    <li>Collaborated with faculty and a small research team to collect geospatial field data.</li>
+                    <li>Supported integration of GIS field technologies into undergraduate curriculum.</li>
+                    <li>Assisted in testing and documenting field data collection workflows.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-meta">
+                    <h4>Trainer</h4>
+                    <span class="date-badge">Fall 2022 - May 2024</span>
+                </div>
+                <div class="timeline-company">Freddy's Frozen Custard and Steakburgers</div>
+                <ul>
+                    <li>Delivered excellent service in fast-paced roles (register, drive-thru, kitchen, custard).</li>
+                    <li>Trained new hires; promoted to Trainer within five months for reliability and leadership.</li>
+                    <li>Helped maintain product inventory and ensured a clean, inclusive work environment.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">Education &amp; Credentials</h2>
+            <div class="timeline-meta">
+                <h4>Bachelor of Science in Geology</h4>
+                <h3><strong>Minors:</strong> GIS &amp; Computational Data Science</h3>
+                <span class="date-badge">Graduated May 2026</span>
+            </div>
+            <div class="timeline-company">George Mason University (GMU) — Fairfax, VA</div>
+            
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 5px;">
+                <strong>Awards &amp; Honors:</strong>
+                <br>
+                • Honors student Cum Laude — May 2026
+                <br>
+                • Outstanding Student for BS in Geology (Earth Surface Processes) — May 2026
+                <br>
+                • Distinguished Learning Assistant for scholarship and peer mentorship — Dec 2025
+            </p>
+        </div>
+    </div>
+
+    <div id="tab-research" class="tab-content" role="tabpanel" aria-labelledby="tab-research">
+        <h2 class="section-title" style="border: none; padding: 0; margin-bottom: 25px;">
+            Technical Case Studies &amp; Field Chapters
+        </h2>
+
+        <div class="accordion-card">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <div>
+                    <h3>1. Relational Database Design for Multi-Attribute Soil Taxonomy Analysis</h3>
+                    <div class="skills-tagline">
+                        Database Design • SQL • Schema Mapping • Soil Taxonomy • Data Standardization
+                    </div>
+                </div>
+                <div class="accordion-icon">▾</div>
+            </div>
+            <div class="accordion-content">
+                <div class="objective-box">
+                    <strong>The Objective:</strong> Bridge multi-disciplinary gaps in soil science by engineering a unified relational schema that normalizes complex attributes across engineering, agricultural, and geological data structures.
+                </div>
+                <div class="doc-section">
+                    <h4>Methods &amp; Functionality</h4>
+                    <p>Constructed a relational database architecture designed to enforce strict data constraints, physical locations, and spatial-temporal variables across complex geographic regions. The database implements comprehensive lookup tables and structural keys that enable precise querying of mechanical properties (drainage index, texture metrics) along with localized chemical indicators (pH levels, macronutrient variances).</p>
+                </div>
+                <div class="doc-section">
+                    <h4>Key Structural Information</h4>
+                    <ul>
+                        <li><strong>Relational Architecture:</strong> Enforces strong database integrity rules requiring exact geographic coordinates and USDA taxonomy keys before a record can be registered.</li>
+                        <li><strong>Temporal Data Tracking:</strong> Features robust spatiotemporal logging designed to monitor structural adjustments, chemical degradation, and nutrient fluctuations within localized regions over historical project ranges.</li>
+                        <li><strong>Multi-Disciplinary Model:</strong> Unifies separate analytical variables—enabling an agricultural expert to evaluate chemical fertility profiles while an engineer queries identical spatial entries for stability factors and drainage behavior.</li>
+                    </ul>
+                </div>
+                <div class="doc-section">
+                    <h4>Key Conclusions &amp; Takeaways</h4>
+                    <p>Standardized geological data frameworks remove structural discrepancies and inconsistent properties that often disrupt regional ground-truthing studies. This architecture demonstrates how structured data systems help reveal long-term soil changes, evaluate land stability for infrastructure, and optimize resource plans over time.</p>
+                </div>
+                <div class="attachment-box">
+                    <div class="attachment-details">
+                        <div class="file-icon">📄</div>
+                        <div class="file-meta">
+                            <h5>Database Design Soil Analysis Project Report.pdf</h5>
+                            <p>Technical Relational Database Report File</p>
+                        </div>
+                    </div>
+                    <a href="Database Design Soil Analysis Project Report.pdf" class="btn-link" target="_blank">📄 View PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-card">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <div>
+                    <h3>2. Tectonics &amp; Basin Development of Utah Field Guide</h3>
+                    <div class="skills-tagline">
+                        Structural Geology • Sedimentology • Basin Analysis • Stratigraphy • Scientific Writing
+                    </div>
+                </div>
+                <div class="accordion-icon">▾</div>
+            </div>
+            <div class="accordion-content">
+                <div class="objective-box">
+                    <strong>The Objective:</strong> Develop a comprehensive geologic field guide analyzing Utah’s tectonic evolution, basin development, stratigraphy, and structural deformation.
+                </div>
+                <div class="doc-section">
+                    <h4>Methods &amp; Functionality</h4>
+                    <p>Conducted regional geologic analysis integrating field observations, tectonic reconstruction, stratigraphic interpretation, sedimentologic analysis, and peer-reviewed literature synthesis across multiple Utah geologic provinces.</p>
+                </div>
+                <div class="doc-section">
+                    <h4>Key Structural Information</h4>
+                    <ul>
+                        <li><strong>Tectonic Reconstruction:</strong> Investigated the Sevier, Nevadan, and Laramide Orogenies alongside Basin and Range extension processes and Farallon Plate subduction.</li>
+                        <li><strong>Field-Based Interpretation:</strong> Documented depositional environments, fault systems, erosional processes, and stratigraphic relationships across major Utah field sites.</li>
+                        <li><strong>Scientific Communication:</strong> Produced a professional geologic field guide chapter integrating structural interpretation, sedimentologic analysis, and regional tectonic history.</li>
+                    </ul>
+                </div>
+                <div class="doc-section">
+                    <h4>Key Conclusions &amp; Takeaways</h4>
+                    <p>Utah’s landscape reflects long-term tectonic deformation, sedimentary basin evolution, crustal extension, and erosion. The project demonstrated how field geology and stratigraphic interpretation reconstruct large-scale geologic history.</p>
+                </div>
+                <div class="attachment-box">
+                    <div class="attachment-details">
+                        <div class="file-icon">📄</div>
+                        <div class="file-meta">
+                            <h5>Group1 - Field Guide Chapter - Tectonics and Basin Development of Utah.pdf</h5>
+                            <p>Geologic Field Guide Chapter File</p>
+                        </div>
+                    </div>
+                    <a href="Group1 - Field Guide Chapter - Tectonics and Basin Development of Utah.pdf" class="btn-link" target="_blank">📄 View PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-card">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <div>
+                    <h3>3. Precambrian Geology of Death Valley Field Guide Chapter</h3>
+                    <div class="skills-tagline">
+                        Precambrian Geology • Structural Geology • Stratigraphy • Sedimentology • Field Mapping
+                    </div>
+                </div>
+                <div class="accordion-icon">▾</div>
+            </div>
+            <div class="accordion-content">
+                <div class="objective-box">
+                    <strong>The Objective:</strong> Investigate Precambrian geologic formations and tectonic history in Death Valley, California through field observations and stratigraphic analysis.
+                </div>
+                <div class="doc-section">
+                    <h4>Methods &amp; Functionality</h4>
+                    <p>Conducted field-based geologic investigations at Mosaic Canyon, Natural Bridge, and Sperry Wash within Death Valley National Park. Integrated field observations, structural interpretation, stratigraphic analysis, and scientific literature to reconstruct Precambrian environments.</p>
+                </div>
+                <div class="doc-section">
+                    <h4>Key Structural Information</h4>
+                    <ul>
+                        <li><strong>Precambrian Stratigraphy:</strong> Documented unconformities, diamictites, glacial deposits, alluvial fans, and major Precambrian formations including the Noonday Dolomite and Kingston Peak Formation.</li>
+                        <li><strong>Structural Interpretation:</strong> Analyzed synclines, fault systems, uplift processes, Basin and Range extension, and metamorphic basement exposures.</li>
+                        <li><strong>Paleoenvironmental Reconstruction:</strong> Interpreted depositional environments associated with shallow marine systems, Neoproterozoic glaciation, tectonic rifting, and sediment transport.</li>
+                    </ul>
+                </div>
+                <div class="doc-section">
+                    <h4>Key Conclusions &amp; Takeaways</h4>
+                    <p>Death Valley preserves a detailed geologic archive spanning much of Earth’s early history. The project demonstrated how field geology and stratigraphic relationships can reconstruct ancient tectonic and environmental evolution.</p>
+                </div>
+                <div class="attachment-box">
+                    <div class="attachment-details">
+                        <div class="file-icon">📄</div>
+                        <div class="file-meta">
+                            <h5>Precambrain Field Guide Chapter- Death Valley.pdf</h5>
+                            <p>Geologic Field Guide Chapter File</p>
+                        </div>
+                    </div>
+                    <a href="Precambrain Field Guide Chapter- Death Valley.pdf" class="btn-link" target="_blank">📄 View PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-card">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <div>
+                    <h3>4. Spatiotemporal Floodplain Exposure &amp; Vulnerability Analysis</h3>
+                    <div class="skills-tagline">
+                        Spatial Data Science • Spatial Autocorrelation (Getis-Ord Gi*) • OLS Regression • ArcGIS Pro
+                    </div>
+                </div>
+                <div class="accordion-icon">▾</div>
+            </div>
+            <div class="accordion-content">
+                <div class="objective-box">
+                    <strong>The Objective:</strong> Quantify and map the clustering patterns of vulnerable elderly populations (age 65+) living inside Florida flood zones to optimize resource allocation for the Office of Floodplain Management (OFM).
+                </div>
+                <div class="doc-section">
+                    <h4>Methods &amp; Functionality</h4>
+                    <p>Spatial data processing methods utilizing census block group vectors from the FGDL and U.S. Census Bureau. The workflow runs Spatial Autocorrelation (Getis-Ord Gi*) using a K-Nearest Neighbor spatial weights matrix, followed by Multivariate Ordinary Least Squares (OLS) Regression.</p>
+                </div>
+                <div class="doc-section">
+                    <h4>Key Structural Information</h4>
+                    <ul>
+                        <li><strong>Spatial Clustering:</strong> Verified strong, non-random clustering with a Global Moran’s I of 0.103 and an extreme z-score of 317.81 (p &lt; 0.0001), isolating High-High hotspots along the coasts and southern peninsula.</li>
+                        <li><strong>Regression Constraints:</strong> The initial model required removing an endogenous "percent tract in floodplain" parameter to prevent an artificial 96% R-squared loop. The refined model demonstrated that population density, poverty, and race are statistically significant factors (p &lt; 0.001), while the low adjusted R-squared (0.0302) suggests coastal development and retirement migration patterns exert stronger influence on floodplain exposure.</li>
+                    </ul>
+                </div>
+                <div class="doc-section">
+                    <h4>Key Conclusions &amp; Takeaways</h4>
+                    <p>Emergency preparedness planning cannot rely solely on traditional socioeconomic vulnerability indices. Elderly exposure hotspots strongly concentrate along coastal retirement corridors, requiring customized evacuation, infrastructure, and emergency management strategies for both high-density affluent developments and lower-income communities.</p>
+                </div>
+                <div class="attachment-box">
+                    <div class="attachment-details">
+                        <div class="file-icon">📄</div>
+                        <div class="file-meta">
+                            <h5>Elderly Population Located in Flordia Floodplains.pdf</h5>
+                            <p>Research Paper File</p>
+                        </div>
+                    </div>
+                    <a href="Elderly Population Located in Flordia Floodplains.pdf" class="btn-link" target="_blank">📄 View PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-card">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <div>
+                    <h3>5. Mapping Lampposts for Infrastructure Optimization &amp; Geospatial Field Mapping</h3>
+                    <div class="skills-tagline">
+                        Trimble GNSS Hardware • ArcGIS Field Maps • Proximity Buffers • Gap Analysis
+                    </div>
+                </div>
+                <div class="accordion-icon">▾</div>
+            </div>
+            <div class="accordion-content">
+                <div class="objective-box">
+                    <strong>The Objective:</strong> Mitigate pedestrian safety gaps along the western corridor of George Mason University’s campus by evaluating existing streetlight infrastructure along Ox Road.
+                </div>
+                <div class="doc-section">
+                    <h4>Methods &amp; Functionality</h4>
+                    <p>Developed a field collection-to-analysis workflow using ArcGIS Online, ArcGIS Field Maps, and Trimble GNSS hardware. Asset coordinates and infrastructure attributes were collected in the field, processed within ArcGIS Pro, and analyzed through spatial proximity buffering techniques to identify illumination gaps and optimize future streetlight placement.</p>
+                </div>
+                <div class="doc-section">
+                    <h4>Key Structural Information</h4>
+                    <p>Field analysis revealed a major infrastructure imbalance between Braddock Road and Ox Road despite both corridors containing identical streetlight counts. Spatial buffering calculations established an optimized illumination threshold of approximately 170 feet, leading to the proposal of 17 additional streetlight locations to improve nighttime pedestrian safety conditions.</p>
+                </div>
+                <div class="doc-section">
+                    <h4>Key Conclusions &amp; Takeaways</h4>
+                    <p>The project demonstrated how geospatial field mapping and proximity analysis can directly support infrastructure planning, public safety improvements, and evidence-based decision making for campus transportation corridors.</p>
+                </div>
+                <div class="attachment-box">
+                    <div class="attachment-details">
+                        <div class="file-icon">📄</div>
+                        <div class="file-meta">
+                            <h5>Field Mapping Final Presentation.pdf</h5>
+                            <p>Geospatial Infrastructure Analysis Report File</p>
+                        </div>
+                    </div>
+                    <a href="Field Mapping Final Presentation.pdf" class="btn-link" target="_blank">📄 View PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-card">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <div>
+                    <h3>6. Crime Analysis &amp; Socioeconomic Spatial Data Mining in Fairfax County</h3>
+                    <div class="skills-tagline">
+                        Python (Scikit-Learn) • PCA • K-Means Clustering • ArcGIS Pro • Spatial Analysis
+                    </div>
+                </div>
+                <div class="accordion-icon">▾</div>
+            </div>
+            <div class="accordion-content">
+                <div class="objective-box">
+                    <strong>The Objective:</strong> Investigate how socioeconomic variables influence spatial crime distribution across Fairfax County, Virginia by integrating demographic datasets with statistical and clustering models.
+                </div>
+                <div class="doc-section">
+                    <h4>Methods &amp; Functionality</h4>
+                    <p>Combined Fairfax County Police Open Data (2025–2026) with American Community Survey (ACS) 5-year demographic estimates using ArcGIS Pro and Python-based data mining workflows. Crime incidents were normalized per 1,000 residents to remove population bias before applying Principal Component Analysis (PCA) for dimensionality reduction and K-Means Clustering for census tract classification.</p>
+                </div>
+                <div class="doc-section">
+                    <h4>Key Structural Information</h4>
+                    <ul>
+                        <li><strong>Dimensionality Reduction:</strong> PCA identified dominant socioeconomic gradients driving tract variation. PC1 (29.75% variance) represented a wealth-and-education axis where income and education correlated positively while poverty and unemployment loaded negatively.</li>
+                        <li><strong>Cluster Classification:</strong> K-Means clustering separated Fairfax County into six distinct socioeconomic-crime groups, distinguishing affluent low-risk tracts from structurally vulnerable areas with elevated crime prevalence.</li>
+                        <li><strong>Model Validation:</strong> Cluster performance was evaluated using Elbow Method optimization and Silhouette Scores, ensuring statistically distinct group separation and meaningful spatial interpretation.</li>
+                    </ul>
+                </div>
+                <div class="doc-section">
+                    <h4>Key Conclusions &amp; Takeaways</h4>
+                    <p>The analysis demonstrated that crime distribution patterns are strongly associated with integrated socioeconomic conditions rather than raw population density alone. Findings support the use of spatial data science and clustering models to improve urban planning, public safety resource allocation, and identification of structurally vulnerable census tracts.</p>
+                </div>
+                <div class="attachment-box">
+                    <div class="attachment-details">
+                        <div class="file-icon">📄</div>
+                        <div class="file-meta">
+                            <h5>Data Mining Crime in Fairfax.pdf</h5>
+                            <p>Research Poster File</p>
+                        </div>
+                    </div>
+                    <a href="Data Mining Crime in Fairfax.pdf" class="btn-link" target="_blank">📄 View PDF</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tab-references" class="tab-content" role="tabpanel" aria-labelledby="tab-references">
+        <div class="card">
+            <h2 class="section-title">Professional &amp; Academic References</h2>
+            <p class="resume-intro" style="margin-bottom: 30px;">
+                Available upon request for professional verification, academic evaluation, etc.
+            </p>
+            
+            <div class="reference-grid">
+                <div class="reference-card">
+                    <h4>Lori Mandable</h4>
+                    <div class="ref-title">Professor / Supervisor</div>
+                    <p><strong>Department:</strong> Geography and Geoinformation Science</p>
+                    <p><strong>Institution:</strong> George Mason University</p>
+                    <p><strong>Location:</strong> Fairfax, VA 22030</p>
+                    <p style="margin-top: 10px;"><strong>Email:</strong> lmandabl@gmu.edu</p>
+                    <p><strong>Phone:</strong> (703) 966-5316</p>
+                </div>
+
+                <div class="reference-card">
+                    <h4>Geoffrey Gilleaudeau</h4>
+                    <div class="ref-title">Professor</div>
+                    <p><strong>Department:</strong> Geology</p>
+                    <p><strong>Institution:</strong> George Mason University</p>
+                    <p><strong>Location:</strong> Fairfax, VA 22030</p>
+                    <p style="margin-top: 10px;"><strong>Email:</strong> ggilleau@gmu.edu</p>
+                </div>
+
+                <div class="reference-card">
+                    <h4>Nick Tumblin</h4>
+                    <div class="ref-title">Manager</div>
+                    <p><strong>Company:</strong> Freddy’s Frozen Custard and Steakburgers</p>
+                    <p><strong>Location:</strong> Fairfax, VA 22030</p>
+                    <p style="margin-top: 10px;"><strong>Email:</strong> ntumblin@jrigms.com</p>
+                    <p><strong>Phone:</strong> (810) 417-0843</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div> <script>
+    function switchTab(event, tabId) {
+        // Clear all active content view screens
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(pane => pane.classList.remove('active'));
+
+        // Reset the navigation bar button states
+        const buttons = document.querySelectorAll('.tab-button');
+        buttons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-selected', 'false');
+        });
+
+        // Toggle visibility parameters for requested tab view target
+        const currentTarget = document.getElementById(tabId);
+        if (currentTarget) {
+            currentTarget.classList.add('active');
+        }
+        
+        if (event && event.currentTarget) {
+            event.currentTarget.classList.add('active');
+            event.currentTarget.setAttribute('aria-selected', 'true');
+        }
+
+        // Align view to top of screen window smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleAccordion(headerElement) {
+        // Toggle slide accordion panels open or closed
+        if (headerElement && headerElement.parentElement) {
+            const card = headerElement.parentElement;
+            card.classList.toggle('active');
+        }
+    }
+</script>
+
+</body>
+</html>
