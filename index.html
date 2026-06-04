@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -343,6 +344,20 @@
             letter-spacing: -0.02em;
         }
 
+        .project-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            background: #eef2f1;
+            color: var(--accent-primary);
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-left: 10px;
+            font-weight: 700;
+            border: 1px solid var(--border-subtle);
+            vertical-align: middle;
+        }
+
         .skills-tagline {
             font-size: 0.85rem;
             color: var(--accent-lightblue);
@@ -526,14 +541,14 @@
             <span><strong>Email:</strong> aruth0209@gmail.com</span>
             <span><strong>Phone:</strong> (302) 803-3744</span>
             <span><strong>Location:</strong> Newark, DE 19711</span>
+            <span><strong>Linkedin:</strong> <a href="https://www.linkedin.com/in/amber-g-54b150333" target="_blank" style="color: #cbdad2; text-decoration: underline;">click here</a></span>
         </div>
     </header>
-
+    
     <nav role="tablist" aria-label="Portfolio Sections">
         <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-intro" onclick="switchTab(event, 'tab-intro')">Intro</button>
         <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-resume" onclick="switchTab(event, 'tab-resume')">Resume</button>
         <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-research" onclick="switchTab(event, 'tab-research')">Research &amp; Field Projects</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-references" onclick="switchTab(event, 'tab-references')">References</button>
     </nav>
 
     <div id="tab-intro" class="tab-content active" role="tabpanel" aria-labelledby="tab-intro">
@@ -559,7 +574,7 @@
 
             </div> 
             <p style="color: var(--text-muted); font-size: 0.95rem; border-top: 1px solid var(--border-subtle); padding-top: 15px; margin-top: 25px;">
-                Select from the technical tabs above to review skills, experience, education history, examine multi-source academic research chapters, and download files.
+                Select from tabs above to review skills, experience, education history, examine academic work
             </p>
         </div>
     </div>
@@ -663,7 +678,7 @@
             <h2 class="section-title">Education &amp; Credentials</h2>
             <div class="timeline-meta">
                 <h4>Bachelor of Science in Geology</h4>
-                <h3><strong>Minors:</strong> GIS &amp; Computational Data Science</h3>
+                <h4><strong>Minors:</strong> GIS &amp; Computational Data Science</h4>
                 <span class="date-badge">Graduated May 2026</span>
             </div>
             <div class="timeline-company">George Mason University (GMU) — Fairfax, VA</div>
@@ -676,6 +691,12 @@
                 • Outstanding Student for BS in Geology (Earth Surface Processes) — May 2026
                 <br>
                 • Distinguished Learning Assistant for scholarship and peer mentorship — Dec 2025
+            </p>
+        </div>
+        <div class="card" style="margin-top: 25px;">
+            <h2 class="section-title">References</h2>
+            <p style="font-size: 1.05rem; color: var(--text-muted); font-style: italic;">
+                References are available upon request.
             </p>
         </div>
     </div>
@@ -731,7 +752,7 @@
         <div class="accordion-card">
             <div class="accordion-header" onclick="toggleAccordion(this)">
                 <div>
-                    <h3>2. Tectonics &amp; Basin Development of Utah Field Guide</h3>
+                    <h3>2. Tectonics &amp; Basin Development of Utah Field Guide <span class="project-tag">Group Project</span></h3>
                     <div class="skills-tagline">
                         Structural Geology • Sedimentology • Basin Analysis • Stratigraphy • Scientific Writing
                     </div>
@@ -741,6 +762,10 @@
             <div class="accordion-content">
                 <div class="objective-box">
                     <strong>The Objective:</strong> Develop a comprehensive geologic field guide analyzing Utah’s tectonic evolution, basin development, stratigraphy, and structural deformation.
+                </div>
+                <div class="doc-section">
+                    <h4>Individual Contribution</h4>
+                    <p>Personally researched and authored the specialized structural sections focused on the Book Cliffs, the Mesozoic Era in Utah, and regional tectonic boundary dynamics, specifically detailing the Farallon Plate subduction under the North American Plate and localized divergent plate boundary evolution.</p>
                 </div>
                 <div class="doc-section">
                     <h4>Methods &amp; Functionality</h4>
@@ -774,7 +799,7 @@
         <div class="accordion-card">
             <div class="accordion-header" onclick="toggleAccordion(this)">
                 <div>
-                    <h3>3. Precambrian Geology of Death Valley Field Guide Chapter</h3>
+                    <h3>3. Precambrian Geology of Death Valley Field Guide Chapter <span class="project-tag">Group Project</span></h3>
                     <div class="skills-tagline">
                         Precambrian Geology • Structural Geology • Stratigraphy • Sedimentology • Field Mapping
                     </div>
@@ -784,6 +809,10 @@
             <div class="accordion-content">
                 <div class="objective-box">
                     <strong>The Objective:</strong> Investigate Precambrian geologic formations and tectonic history in Death Valley, California through field observations and stratigraphic analysis.
+                </div>
+                <div class="doc-section">
+                    <h4>Individual Contribution</h4>
+                    <p>Compiled the field guide components derived from our team's guided site visits including the Natural Bridge formation and Sperry Wash hike. In addition, explicitly logging, interpreting, and indicating specific stratigraphic and structural observations documented firsthand during the field camp.</p>
                 </div>
                 <div class="doc-section">
                     <h4>Methods &amp; Functionality</h4>
@@ -817,7 +846,7 @@
         <div class="accordion-card">
             <div class="accordion-header" onclick="toggleAccordion(this)">
                 <div>
-                    <h3>4. Spatiotemporal Floodplain Exposure &amp; Vulnerability Analysis</h3>
+                    <h3>4. Spatiotemporal Floodplain Exposure &amp; Vulnerability Analysis <span class="project-tag">Group Project</span></h3>
                     <div class="skills-tagline">
                         Spatial Data Science • Spatial Autocorrelation (Getis-Ord Gi*) • OLS Regression • ArcGIS Pro
                     </div>
@@ -827,6 +856,10 @@
             <div class="accordion-content">
                 <div class="objective-box">
                     <strong>The Objective:</strong> Quantify and map the clustering patterns of vulnerable elderly populations (age 65+) living inside Florida flood zones to optimize resource allocation for the Office of Floodplain Management (OFM).
+                </div>
+                <div class="doc-section">
+                    <h4>Individual Contribution</h4>
+                    <p>Owned and executed the entire quantitative core of the study. Personally worked through all spatial analysis data processes and structural statistical outputs, including the configurations for Spatial Autocorrelation (Getis-Ord Gi*) algorithms and Ordinary Least Squares (OLS) multivariate regression modeling.</p>
                 </div>
                 <div class="doc-section">
                     <h4>Methods &amp; Functionality</h4>
@@ -847,11 +880,11 @@
                     <div class="attachment-details">
                         <div class="file-icon">📄</div>
                         <div class="file-meta">
-                            <h5>Elderly Population Located in Flordia Floodplains.pdf</h5>
+                            <h5>Elderly Population Located in Flordia Floodplains Reviewed.pdf</h5>
                             <p>Research Paper File</p>
                         </div>
                     </div>
-                    <a href="Elderly Population Located in Flordia Floodplains.pdf" class="btn-link" target="_blank">📄 View PDF</a>
+                    <a href="Elderly Population Located in Flordia Floodplains Reviewed.pdf" class="btn-link" target="_blank">📄 View PDF</a>
                 </div>
             </div>
         </div>
@@ -908,6 +941,9 @@
             <div class="accordion-content">
                 <div class="objective-box">
                     <strong>The Objective:</strong> Investigate how socioeconomic variables influence spatial crime distribution across Fairfax County, Virginia by integrating demographic datasets with statistical and clustering models.
+                </div>
+                 <div class="doc-section">
+                    <strong>Code avaliable upon request<strong>
                 </div>
                 <div class="doc-section">
                     <h4>Methods &amp; Functionality</h4>
@@ -978,7 +1014,9 @@
         </div>
     </div>
 
-</div> <script>
+</div> 
+
+<script>
     function switchTab(event, tabId) {
         // Clear all active content view screens
         const contents = document.querySelectorAll('.tab-content');
@@ -1017,3 +1055,5 @@
 
 </body>
 </html>
+
+```
