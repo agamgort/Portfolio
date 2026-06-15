@@ -165,45 +165,13 @@
         }
 
         /* ==========================================================================
-           INTRO TAB PROFILE TWO-COLUMN LAYOUT
+           INTRO TAB PROFILE STYLES
            ========================================================================== */
         .resume-intro {
             font-size: 1.05rem;
             color: var(--text-muted);
             margin-bottom: 25px;
             line-height: 1.7;
-        }
-
-        .intro-layout {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .profile-img-container {
-            text-align: center;
-            width: 100%;
-            max-width: 320px;
-            margin: 0 auto;
-        }
-
-        .profile-img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-subtle);
-            object-fit: cover;
-        }
-
-        @media (min-width: 768px) {
-            .intro-layout {
-                grid-template-columns: 320px 1fr;
-            }
-            .profile-img-container {
-                margin: 0;
-            }
         }
 
         /* ==========================================================================
@@ -341,20 +309,6 @@
             color: var(--accent-primary);
             font-weight: 700;
             letter-spacing: -0.02em;
-        }
-
-        .project-tag {
-            display: inline-block;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            background: #eef2f1;
-            color: var(--accent-primary);
-            padding: 3px 10px;
-            border-radius: 20px;
-            margin-left: 10px;
-            font-weight: 700;
-            border: 1px solid var(--border-subtle);
-            vertical-align: middle;
         }
 
         .skills-tagline {
@@ -543,37 +497,30 @@
             <span><strong>Linkedin:</strong> <a href="https://www.linkedin.com/in/amber-g-54b150333" target="_blank" style="color: #cbdad2; text-decoration: underline;">click here</a></span>
         </div>
     </header>
-    
+
     <nav role="tablist" aria-label="Portfolio Sections">
         <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-intro" onclick="switchTab(event, 'tab-intro')">Intro</button>
         <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-resume" onclick="switchTab(event, 'tab-resume')">Resume</button>
         <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-research" onclick="switchTab(event, 'tab-research')">Research &amp; Field Projects</button>
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-references" onclick="switchTab(event, 'tab-references')">References</button>
     </nav>
 
     <div id="tab-intro" class="tab-content active" role="tabpanel" aria-labelledby="tab-intro">
         <div class="card">
-            <div class="intro-layout">
-                
-                <div class="profile-img-container">
-                    <img src="Amber PFP.jpg" alt="Amber Gamgort Profile Image" class="profile-img">
-                </div>
-
-                <div>
-                    <h2 class="section-title" style="margin-top: 0;">Professional Overview</h2>
-                    <p class="resume-intro">
-                        I am a Geology graduate with interdisciplinary training in GIS and data science, interested in working with data from collection and management through processing, analysis, and clear visualization. I bring strong attention to detail, reliability, and a collaborative mindset to both field and office environments, and I am highly eager to learn new systems, adapt to fresh workflows, and pursue relevant industry certifications or licensure as required.
-                    </p>
-                    <p class="resume-intro" style="margin-top: -10px;">
-                        Through my academic background and hands-on roles at George Mason University, I have developed practical capabilities across spatial analysis, programming, and data modeling. My technical experience includes executing diverse GIS data pipelines, manipulating relational database structures, utilizing SQL and Python for statistical data tracking, and applying clustering models to evaluate spatial datasets.
-                    </p>
-                    <p class="resume-intro" style="margin-top: -10px;">
-                        In the field, I am experienced with mobile spatial data harvesting workflows, using Trimble GNSS hardware and ArcGIS Field Maps to conduct infrastructure audits, as well as executing basic stratigraphic observations and collecting data during geology field trips to Death Valley and Utah. Additionally, my experience as a peer Learning Assistant for field mapping and 3D GIS courses has deeply strengthened my technical communication, software troubleshooting, and ability to work effectively alongside faculty and student teams to solve problems.
-                    </p>
-                </div>
-
-            </div> 
+            <div>
+                <h2 class="section-title" style="margin-top: 0;">Professional Overview</h2>
+                <p class="resume-intro">
+                    I am a Geology graduate with interdisciplinary training in GIS and data science, interested in working with data from collection and management through processing, analysis, and clear visualization. I bring strong attention to detail, reliability, and a collaborative mindset to both field and office environments, and I am highly eager to learn new systems, adapt to fresh workflows, and pursue relevant industry certifications or licensure as required.
+                </p>
+                <p class="resume-intro" style="margin-top: -10px;">
+                    Through my academic background and hands-on roles at George Mason University, I have developed practical capabilities across spatial analysis, programming, and data modeling. My technical experience includes executing diverse GIS data pipelines, manipulating relational database structures, utilizing SQL and Python for statistical data tracking, and applying clustering models to evaluate spatial datasets.
+                </p>
+                <p class="resume-intro" style="margin-top: -10px;">
+                    In the field, I am experienced with mobile spatial data harvesting workflows, using Trimble GNSS hardware and ArcGIS Field Maps to conduct infrastructure audits, as well as executing basic stratigraphic observations and collecting data during geology field trips to Death Valley and Utah. Additionally, my experience as a peer Learning Assistant for field mapping and 3D GIS courses has deeply strengthened my technical communication, software troubleshooting, and ability to work effectively alongside faculty and student teams to solve problems.
+                </p>
+            </div>
             <p style="color: var(--text-muted); font-size: 0.95rem; border-top: 1px solid var(--border-subtle); padding-top: 15px; margin-top: 25px;">
-                Select from tabs above to review skills, experience, education history, examine academic work
+                Select from the tabs above to review skills, experience, education history and review academic work.
             </p>
         </div>
     </div>
@@ -677,7 +624,7 @@
             <h2 class="section-title">Education &amp; Credentials</h2>
             <div class="timeline-meta">
                 <h4>Bachelor of Science in Geology</h4>
-                <h4><strong>Minors:</strong> GIS &amp; Computational Data Science</h4>
+                <h3><strong>Minors:</strong> GIS &amp; Computational Data Science</h3>
                 <span class="date-badge">Graduated May 2026</span>
             </div>
             <div class="timeline-company">George Mason University (GMU) — Fairfax, VA</div>
@@ -690,12 +637,6 @@
                 • Outstanding Student for BS in Geology (Earth Surface Processes) — May 2026
                 <br>
                 • Distinguished Learning Assistant for scholarship and peer mentorship — Dec 2025
-            </p>
-        </div>
-        <div class="card" style="margin-top: 25px;">
-            <h2 class="section-title">References</h2>
-            <p style="font-size: 1.05rem; color: var(--text-muted); font-style: italic;">
-                References are available upon request.
             </p>
         </div>
     </div>
@@ -739,11 +680,11 @@
                     <div class="attachment-details">
                         <div class="file-icon">📄</div>
                         <div class="file-meta">
-                            <h5>Database Design Soil Analysis Project Report.pdf</h5>
+                            <h5>CDS_302_Database_Design_Soil_Analysis_FINAL_REPORT.docx</h5>
                             <p>Technical Relational Database Report File</p>
                         </div>
                     </div>
-                    <a href="Database Design Soil Analysis Project Report.pdf" class="btn-link" target="_blank">📄 View PDF</a>
+                    <a href="documents/CDS_302_Database_Design_Soil_Analysis_FINAL_REPORT.docx" class="btn-link" download>💾 Download Word Doc</a>
                 </div>
             </div>
         </div>
@@ -751,7 +692,7 @@
         <div class="accordion-card">
             <div class="accordion-header" onclick="toggleAccordion(this)">
                 <div>
-                    <h3>2. Tectonics &amp; Basin Development of Utah Field Guide <span class="project-tag">Group Project</span></h3>
+                    <h3>2. Tectonics &amp; Basin Development of Utah Field Guide</h3>
                     <div class="skills-tagline">
                         Structural Geology • Sedimentology • Basin Analysis • Stratigraphy • Scientific Writing
                     </div>
@@ -761,10 +702,6 @@
             <div class="accordion-content">
                 <div class="objective-box">
                     <strong>The Objective:</strong> Develop a comprehensive geologic field guide analyzing Utah’s tectonic evolution, basin development, stratigraphy, and structural deformation.
-                </div>
-                <div class="doc-section">
-                    <h4>Individual Contribution</h4>
-                    <p>Personally researched and authored the specialized structural sections focused on the Book Cliffs, the Mesozoic Era in Utah, and regional tectonic boundary dynamics, specifically detailing the Farallon Plate subduction under the North American Plate and localized divergent plate boundary evolution.</p>
                 </div>
                 <div class="doc-section">
                     <h4>Methods &amp; Functionality</h4>
@@ -786,11 +723,11 @@
                     <div class="attachment-details">
                         <div class="file-icon">📄</div>
                         <div class="file-meta">
-                            <h5>Group1 - Field Guide Chapter - Tectonics and Basin Development of Utah.pdf</h5>
+                            <h5>Group1_Field_Guide_Chapter_Tectonics_and_Basin_Development_of_Utah.pdf</h5>
                             <p>Geologic Field Guide Chapter File</p>
                         </div>
                     </div>
-                    <a href="Group1 - Field Guide Chapter - Tectonics and Basin Development of Utah.pdf" class="btn-link" target="_blank">📄 View PDF</a>
+                    <a href="documents/Group1_Field_Guide_Chapter_Tectonics_and_Basin_Development_of_Utah.pdf" class="btn-link" target="_blank">📄 View PDF</a>
                 </div>
             </div>
         </div>
@@ -798,7 +735,7 @@
         <div class="accordion-card">
             <div class="accordion-header" onclick="toggleAccordion(this)">
                 <div>
-                    <h3>3. Precambrian Geology of Death Valley Field Guide Chapter <span class="project-tag">Group Project</span></h3>
+                    <h3>3. Precambrian Geology of Death Valley Field Guide Chapter</h3>
                     <div class="skills-tagline">
                         Precambrian Geology • Structural Geology • Stratigraphy • Sedimentology • Field Mapping
                     </div>
@@ -808,10 +745,6 @@
             <div class="accordion-content">
                 <div class="objective-box">
                     <strong>The Objective:</strong> Investigate Precambrian geologic formations and tectonic history in Death Valley, California through field observations and stratigraphic analysis.
-                </div>
-                <div class="doc-section">
-                    <h4>Individual Contribution</h4>
-                    <p>Compiled the field guide components derived from our team's guided site visits including the Natural Bridge formation and Sperry Wash hike. In addition, explicitly logging, interpreting, and indicating specific stratigraphic and structural observations documented firsthand during the field camp.</p>
                 </div>
                 <div class="doc-section">
                     <h4>Methods &amp; Functionality</h4>
@@ -833,11 +766,11 @@
                     <div class="attachment-details">
                         <div class="file-icon">📄</div>
                         <div class="file-meta">
-                            <h5>Precambrain Field Guide Chapter- Death Valley.pdf</h5>
+                            <h5>Precambrian_Field_Guide_Chapter_Death_Valley.pdf</h5>
                             <p>Geologic Field Guide Chapter File</p>
                         </div>
                     </div>
-                    <a href="Precambrain Field Guide Chapter- Death Valley.pdf" class="btn-link" target="_blank">📄 View PDF</a>
+                    <a href="documents/Precambrian_Field_Guide_Chapter_Death_Valley.pdf" class="btn-link" target="_blank">📄 View PDF</a>
                 </div>
             </div>
         </div>
@@ -845,7 +778,7 @@
         <div class="accordion-card">
             <div class="accordion-header" onclick="toggleAccordion(this)">
                 <div>
-                    <h3>4. Spatiotemporal Floodplain Exposure &amp; Vulnerability Analysis <span class="project-tag">Group Project</span></h3>
+                    <h3>4. Spatiotemporal Floodplain Exposure &amp; Vulnerability Analysis</h3>
                     <div class="skills-tagline">
                         Spatial Data Science • Spatial Autocorrelation (Getis-Ord Gi*) • OLS Regression • ArcGIS Pro
                     </div>
@@ -855,10 +788,6 @@
             <div class="accordion-content">
                 <div class="objective-box">
                     <strong>The Objective:</strong> Quantify and map the clustering patterns of vulnerable elderly populations (age 65+) living inside Florida flood zones to optimize resource allocation for the Office of Floodplain Management (OFM).
-                </div>
-                <div class="doc-section">
-                    <h4>Individual Contribution</h4>
-                    <p>Owned and executed the entire quantitative core of the study. Personally worked through all spatial analysis data processes and structural statistical outputs, including the configurations for Spatial Autocorrelation (Getis-Ord Gi*) algorithms and Ordinary Least Squares (OLS) multivariate regression modeling.</p>
                 </div>
                 <div class="doc-section">
                     <h4>Methods &amp; Functionality</h4>
@@ -879,11 +808,11 @@
                     <div class="attachment-details">
                         <div class="file-icon">📄</div>
                         <div class="file-meta">
-                            <h5>Elderly Population Located in Flordia Floodplains Reviewed.pdf</h5>
+                            <h5>Elderly_Population_in_Floodplains_in_Florida.pdf</h5>
                             <p>Research Paper File</p>
                         </div>
                     </div>
-                    <a href="Elderly Population Located in Flordia Floodplains Reviewed.pdf" class="btn-link" target="_blank">📄 View PDF</a>
+                    <a href="documents/Elderly_Population_in_Floodplains_in_Florida.pdf" class="btn-link" target="_blank">📄 View PDF</a>
                 </div>
             </div>
         </div>
@@ -918,11 +847,11 @@
                     <div class="attachment-details">
                         <div class="file-icon">📄</div>
                         <div class="file-meta">
-                            <h5>Field Mapping Final Presentation.pdf</h5>
+                            <h5>FINAL_Field_Mapping_Executive_Summary.docx</h5>
                             <p>Geospatial Infrastructure Analysis Report File</p>
                         </div>
                     </div>
-                    <a href="Field Mapping Final Presentation.pdf" class="btn-link" target="_blank">📄 View PDF</a>
+                    <a href="documents/FINAL_Field_Mapping_Executive_Summary.docx" class="btn-link" download>💾 Download Summary</a>
                 </div>
             </div>
         </div>
@@ -942,7 +871,7 @@
                     <strong>The Objective:</strong> Investigate how socioeconomic variables influence spatial crime distribution across Fairfax County, Virginia by integrating demographic datasets with statistical and clustering models.
                 </div>
                  <div class="doc-section">
-                    <strong>Code avaliable upon request<strong>
+                    <strong>Code available upon request<strong>
                 </div>
                 <div class="doc-section">
                     <h4>Methods &amp; Functionality</h4>
@@ -964,15 +893,58 @@
                     <div class="attachment-details">
                         <div class="file-icon">📄</div>
                         <div class="file-meta">
-                            <h5>Data Mining Crime in Fairfax.pdf</h5>
-                            <p>Research Poster File</p>
+                            <h5>Data_Mining_Crime_in_Fairfax.pptx</h5>
+                            <p>Research Presentation Slides File</p>
                         </div>
                     </div>
-                    <a href="Data Mining Crime in Fairfax.pdf" class="btn-link" target="_blank">📄 View PDF</a>
+                    <a href="documents/Data_Mining_Crime_in_Fairfax.pptx" class="btn-link" download>💾 Download Slides</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-card">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <div>
+                    <h3>7. Determinants and Dynamics of Crime Intensity at Urban Transit Stops</h3>
+                    <div class="skills-tagline">Python • Poisson Regression • Spatial Computing • Pandas &amp; GeoPandas • ArcGIS Pro</div>
+                </div>
+                <div class="accordion-icon">&#9662;</div>
+            </div>
+            <div class="accordion-content">
+                <div class="objective-box">
+                    <strong>The Objective:</strong> Investigate how localized sociodemographic factors and built environment indicators influence the count and specific type of crimes (assault, theft, and auto theft) occurring at bus stops across the Washington, D.C. metropolitan area.
+                </div>
+                <div class="doc-section">
+                    <h4>Academic Context &amp; Functionality</h4>
+                    <p><strong>Co-Authors:</strong> Sydnee Baldwin, Amber Gamgort, Sara Von Hoene, Sarah Zak | <strong>Course:</strong> GGS 366: Spatial Computing (Dr. Armita Kar, GMU)</p>
+                    <p>Engineered a spatial data pipeline merging tract-level American Community Survey (ACS) sociodemographic attributes and Open Data DC built environment layers directly onto disaggregated bus stop point geometries using a spatial <code>within</code> predicate in Python.</p>
+                </div>
+                <div class="doc-section">
+                    <h4>Methods &amp; Structural Information</h4>
+                    <ul>
+                        <li><strong>Predictive Modeling:</strong> Formulated three distinct, counting-based Poisson Regression models utilizing a 95% confidence interval ($p < 0.05$) to isolate statistically significant environmental and demographic risk vectors across assault, theft, and vehicle theft datasets.</li>
+                        <li><strong>Sociodemographic &amp; Environmental Covariates:</strong> Stratified independent tract matrices by race, age, poverty rates, unemployment, sex, road connectivity density (grouped into highway, arterial/collector, and local classes), and spatial proximity to emergency infrastructure (police and fire stations).</li>
+                        <li><strong>Model Performance Insights:</strong> Model capacity varied drastically by crime type. The model for general theft demonstrated the highest explanatory strength ($\text{Pseudo-R}^2 \approx 0.378$), whereas the motor vehicle theft ($\text{Pseudo-R}^2 \approx 0.171$) and assault models ($\text{Pseudo-R}^2 \approx 0.125$) indicated that additional variables like foot traffic or localized illumination levels heavily drive violent crime variations.</li>
+                    </ul>
+                </div>
+                <div class="doc-section">
+                    <h4>Key Conclusions &amp; Takeaways</h4>
+                    <p>Statistical outputs revealed that transit-related crime is profoundly dictated by localized movement, urban connectivity, and socioeconomic structures. High road density and proximity to emergency infrastructure acted as powerful positive predictors, mathematically establishing that crime concentrates in high-activity transit corridors. Conversely, higher educational attainment acted as a strong mitigation factor, revealing a significant negative coefficient ($-0.0246$) that links an increase in Bachelor's degrees per tract to a direct reduction in localized assault rates near public transit nodes.</p>
+                </div>
+                <div class="attachment-box">
+                    <div class="attachment-details">
+                        <div class="file-icon">&#128196;</div>
+                        <div class="file-meta">
+                            <h5>Determinants_and_Dynamics_of_Crime_Intensity_at_Urban_Transit_Stops.pdf</h5>
+                            <p>PDF Spatial Computing Research Paper</p>
+                        </div>
+                    </div>
+                    <a href="documents/Determinants_and_Dynamics_of_Crime_Intensity_at_Urban_Transit_Stops.pdf" class="btn-link" target="_blank">📄 View Research Paper</a>
                 </div>
             </div>
         </div>
     </div>
+
 
     <div id="tab-references" class="tab-content" role="tabpanel" aria-labelledby="tab-references">
         <div class="card">
@@ -1004,7 +976,7 @@
                 <div class="reference-card">
                     <h4>Nick Tumblin</h4>
                     <div class="ref-title">Manager</div>
-                    <p><strong>Company:</strong> Freddy’s Frozen Custard and Steakburgers</p>
+                    <p>Company: Freddy’s Frozen Custard and Steakburgers</p>
                     <p><strong>Location:</strong> Fairfax, VA 22030</p>
                     <p style="margin-top: 10px;"><strong>Email:</strong> ntumblin@jrigms.com</p>
                     <p><strong>Phone:</strong> (810) 417-0843</p>
